@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: app
+          # 使用Nacos的话就是nacos的服务名称
+          uri: lb://gateway-app
+          predicates:
+            - Path=/app/**
+  application:
+    name: gateway-eureka-loadbalance

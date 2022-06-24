@@ -1,0 +1,25 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: app
+          uri: lb://app-hello
+          predicates:
+            - Path=/app/**
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      global-filter:
+        load-balancer-client:
+          enabled: false
+        reactive-load-balancer-client:
+          enabled: true
+    discovery:
+      client:
+        simple:
+          instances:
+            app-hello:
+              - uri: http://localhost:9001
+              - uri: http://localhost:9002
+              - uri: http://localhost:9003

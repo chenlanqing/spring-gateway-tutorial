@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: app
+          uri: http://localhost:9000
+          predicates:
+            - Path=/app/**
+          filters:
+            - name: First
+            - name: Second

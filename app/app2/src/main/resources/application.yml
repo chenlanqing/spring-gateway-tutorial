@@ -1,0 +1,12 @@
+server:
+  port: 9002
+  servlet:
+    context-path: /app
+
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  application:
+    name: gateway-app
